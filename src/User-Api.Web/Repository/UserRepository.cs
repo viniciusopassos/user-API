@@ -1,5 +1,4 @@
-
-
+using User_Api.Web.Models;
 
 namespace User_Api.Web.Repository
 {
@@ -9,6 +8,10 @@ namespace User_Api.Web.Repository
         public UserRepository(UserContext context)
         {
             _context = context;
+        }
+        public IEnumerable<User> GetUsers()
+        {
+            return _context.Users;
         }
     }
 }
