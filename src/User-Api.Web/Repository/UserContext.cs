@@ -7,6 +7,8 @@ namespace User_Api.Web.Repository
     {
         public UserContext() {}
 
+        public UserContext(DbContextOptions<UserContext> options) : base(options){}
+
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -13,5 +13,16 @@ namespace User_Api.Web.Repository
         {
             return _context.Users;
         }
+        public User GetUser(int id)
+        {
+            return _context.Users.Find(id);
+        }
+        public User AddUser(User user)
+        {
+            _context.Users.Add(user);
+            _context.SaveChanges();
+
+            return user;
+        }
     }
 }

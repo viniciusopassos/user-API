@@ -17,10 +17,31 @@ namespace User_Api.Web.Controllers
         /// <summary> This function return all users </summary>
         /// <returns> A list of user </returns>
         [HttpGet(Name = "GetUsers")]
-        public IActionResult GetUsers()
+        public IActionResult Get()
         {
             IEnumerable<User> user = _repository.GetUsers();            
             return Ok(user);
+        }
+
+        /// <summary> This function return specific user </summary>
+        /// <returns> The user according to the id </returns>
+        [HttpGet("{id}", Name = "GetUser")]
+        public IActionResult Get(int id)
+        {
+            User user = _repository.GetUser(id);
+
+            if (user == null) return NotFound();
+
+            return Ok(user);
+        }
+
+        /// <summary> This function create a user </summary>
+        /// <returns> A created user </returns>
+        [HttpPost]
+        public IActionResult CreateUser(User user)
+        {
+            _repository.AddUser(user);
+            return CreatedAtRoute("GetUsers", user);
         }
     }
 }
