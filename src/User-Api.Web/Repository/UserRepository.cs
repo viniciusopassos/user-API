@@ -24,5 +24,20 @@ namespace User_Api.Web.Repository
 
             return user;
         }
+        public User UpdateUser(User user)
+        {
+            _context.Users.Update(user);
+            _context.SaveChanges();
+
+            return user;
+        }
+        public User RemoveUser(int id)
+        {
+            var user = _context.Users.Find(id);
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+
+            return user;
+        }
     }
 }

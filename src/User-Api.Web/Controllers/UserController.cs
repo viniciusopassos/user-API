@@ -43,5 +43,24 @@ namespace User_Api.Web.Controllers
             _repository.AddUser(user);
             return CreatedAtRoute("GetUsers", user);
         }
+
+        /// <summary> This function update a user </summary>
+        /// <returns> A updated user </returns>
+        [HttpPut]
+        public IActionResult UpdateUser(User user)
+        {
+            _repository.UpdateUser(user);
+            return Ok(user);
+        }
+        
+        /// <summary> This function remove a user </summary>
+        /// <returns> A removed user </returns>
+        [HttpDelete("{id}")]
+        public IActionResult RemoveUser(int id, User user)
+        {
+            var userById = _repository.GetUser(id);
+            _repository.RemoveUser(id);
+            return Ok(userById);
+        }
     }
 }
