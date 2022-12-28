@@ -1,7 +1,7 @@
 <h1 align="center">user-API</h1>
 
 <h2>Contexto</h2>
-Objetivo do projeto desenvolvido foi criar uma API de autenticação simples com os devidos teste end-to-end para garantir a integridade da aplicação. 
+Objetivo do projeto desenvolvido foi criar uma API de autenticação simples com os devidos testes end-to-end para garantir a integridade da aplicação. 
 
 <h3>Desafios</h3>
 <ul>
