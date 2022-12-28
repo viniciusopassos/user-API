@@ -1,11 +1,16 @@
 using System.Reflection;
 using Microsoft.OpenApi.Models;
+using User_Api.Web.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddTransient<UserContext>();
+builder.Services.AddTransient<UserRepository>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
